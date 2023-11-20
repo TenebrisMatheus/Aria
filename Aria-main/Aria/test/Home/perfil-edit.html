@@ -1,0 +1,38 @@
+<!-- perfil-edit.html -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/perfil-edit.css">
+    <title>Editar Perfil</title>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/perfil-edit.js"></script>
+    <script src="../Cadastro/config.js"></script>
+</head>
+<body>
+    <h1>Editar Perfil</h1>
+
+    <form id="editProfileForm">
+        <label for="editUserName">Nome de Usuário:</label>
+        <input type="text" id="editUserName" required>
+        <div id="errorMessage" style="display: none; color: red;"></div>
+        <label for="editPortfolio">Portfólio:</label>
+        <textarea id="editPortfolio"></textarea><br>
+
+        <label for="editWorkplaces">Locais de Trabalho:</label>
+        <textarea id="editWorkplaces"></textarea><br>
+
+        <label for="editSocialLink">Link para Rede Social:</label>
+        <input type="text" id="editSocialLink">
+
+        <button type="button" id="saveChangesButton">Salvar Alterações</button>
+    </form>
+</body>
+</html>

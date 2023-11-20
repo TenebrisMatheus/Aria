@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperação de Senha</title>
+    <link rel="stylesheet" href="senha.css">
+    <!-- Inclua as bibliotecas CSS do Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="logo-and-form">
+                    <img src="../IMG/Logo.png" alt="Aria" class="logo img-fluid pulse-animation">
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        Esqueceu sua senha?
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="email">Digite seu e-mail:</label>
+                                <input type="email" class="form-control" id="forgot-password" name="email" required>
+                            </div>
+                            <button type="button" class="btn btn-primary" id="reset-password">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- Estilo da mensagem -->
+                <div id="message-container" class="alert alert-success alert-dismissible fade show" style="display: none;">
+                    <p id="message"></p>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>      
+    <!-- Inclua as bibliotecas JavaScript do Bootstrap (opcional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Inicialize o Firebase com suas configurações -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+    <script src="../Cadastro/config.js"></script>
+    <script>
+        function maskEmail(email) {
+            // Verifica se o e-mail é válido
+            if (typeof email !== 'string' || !email.includes('@')) {
+                return email; // Retorna o e-mail original se for inválido
+            }
+
+            // Divide o e-mail em partes
+            var [localPart, domain] = email.split('@');
+
+            // Obtém o tamanho do localPart e decide quantos caracteres mostrar
+            var visibleCharacters = Math.min(3, localPart.length); // Pode ajustar o número de caracteres visíveis
+
+            // Gera o e-mail mascarado
+            var maskedEmail = localPart.substring(0, visibleCharacters).padEnd(localPart.length, '*') + '@' + domain;
+
+            return maskedEmail;
+        }
+
+        var resetPasswordButton = document.getElementById('reset-password');
+        var emailInput = document.getElementById('forgot-password');
+        var messageContainer = document.getElementById('message-container');
+        var message = document.getElementById('message');
+
+        resetPasswordButton.addEventListener('click', function () {
+    var email = emailInput.value;
+    var maskedEmail = maskEmail(email); // Mascara o e-mail
+
+    firebase.auth().sendPasswordResetEmail(email)
+        .then(function () {
+            message.innerHTML = 'Instruções de redefinição de senha enviadas para ' + maskedEmail;
+            messageContainer.style.display = 'block';
+            emailInput.value = '';
+        })
+        .catch(function (error) {
+            var errorMessage = error.message;
+            message.innerHTML = 'Erro ao enviar instruções de redefinição de senha: ' + errorMessage;
+            messageContainer.style.display = 'block';
+        });
+});
+
+
+        var closeButton = document.querySelector("#message-container .close");
+        closeButton.addEventListener("click", function () {
+            messageContainer.style.display = 'none';
+            window.location.href = "login.html"; 
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+/* Estilo personalizado para centralizar a página */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, black,red );
+    
+}
+@media (min-width: 768px) {
+    form {
+        width: 45%;
+        max-width: 450px;
+        height: 700px;
+        margin-right: -40%;
+        background-color: rgb(255, 255, 255);
+        border-radius: 2%;
+        
+    }
+    .logo-and-name {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 20px;
+    }
+}
+
+/* Estilo personalizado para o formulário na versão celular */
+@media (max-width: 767px) {
+    form {
+        width: 80%;
+        text-align: center;
+        background-color: rgb(255, 255, 255);
+        border-radius: 2%;
+    }
+    .logo-and-name {
+        display: block;
+        margin-bottom: 20px;
+        
+    }
+}
+.form-container{
+    padding: 20px;
+}
+/* Estilos para os botões */
+.google-btn,
+.github-btn {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #f1f1f1;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    width: 100%;
+    max-width: 900px; /* Ajuste o valor máximo conforme necessário */
+}
+
+.google-btn:hover,
+.github-btn:hover {
+    background-color: #d8d1d1;
+}
+
+.btn-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.btn-text {
+    white-space: nowrap;
+}
+
+/* Estilos para a linha divisória */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.divider hr {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #ccc;
+    margin: 0 10px;
+}
+
+.divider-label {
+    color: #999;
+    font-weight: bold;
+    padding: 0 10px;
+}
+.logo-and-form {
+    display: flex;
+    align-items: center;
+}
+
+
+.logo {
+    width: 500px; 
+    height: auto; 
+    margin-left: -700px; 
+}
+.pulse-animation {
+    animation: pulse 5.0s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

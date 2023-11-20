@@ -1,0 +1,54 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, black, red);
+}
+
+.container {
+    position: relative;
+}
+
+.card {
+    margin-bottom: 20px; /* Adicione espaço abaixo do card para a mensagem */
+}
+
+.alert {
+    width: 100%;
+    text-align: center;
+}
+
+form {
+    width: 90%; /* Reduzi a largura do formulário para melhor ajuste em telas menores */
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px; /* Ajustei a borda para ter um arredondamento mais sutil */
+    padding: 20px; /* Adicionei um espaço interno para melhorar a aparência */
+    margin: auto; /* Centralizei o formulário na tela */
+}
+
+.logo {
+    width: 200px; /* Largura desejada para o logotipo */
+    margin-left: auto; /* Centralizei a logo na tela */
+    margin-right: auto;
+    margin-top: -100px; /* Ajustei a margem superior para uma melhor posição */
+    margin-bottom: 20px; /* Adicionei uma margem abaixo da logo */
+}
+
+.pulse-animation {
+    animation: pulse 5.0s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

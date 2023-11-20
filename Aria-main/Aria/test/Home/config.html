@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css"> <!-- Adicione um arquivo CSS separado para estilos de configuração -->
+    <title>Configurações</title> 
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase.js"></script>
+    <script src="../Cadastro/config.js"></script>
+    <script src="index.js"></script> <!-- Adicione um arquivo JS separado para scripts de configuração -->
+</head>
+<body>
+
+    <div class="navbar">
+        <img class="logoPrincipal" src="../IMG/logoPrincipal.png" alt="Sua Foto de Perfil">
+        <a href="home_index.html">Home</a>
+        <a href="musica_index.html">Música</a>
+        <a href="cinema_index.html">Cinema</a>
+        <a href="games_index.html">Games</a>
+        <div id="userPhoto" class="profile-pic" onclick="toggleMenu()">
+            <!-- A imagem do usuário será inserida aqui -->
+        </div>
+        <div id="menuContainer">
+            <div class="menu-dropdown" id="menuDropdown">
+                <a href="perfil.html">Perfil</a>
+                <a href="#">Conta</a>
+                <a href="config.html">Configurações</a>
+                <button id="Sair">Sair</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conteúdo de Configurações -->
+    <div class="config-container">
+        <h1>Configurações</h1>
+
+        <section>
+            <h2>Configurações Gerais</h2>
+            <form id="generalSettingsForm">
+                <label for="username">Nome de usuário:</label>
+                <input type="text" id="username" name="username" placeholder="Seu nome de usuário">
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" placeholder="Seu e-mail">
+
+                <button type="submit">Salvar</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Preferências de Notificação</h2>
+            <form id="notificationSettingsForm">
+                <label for="enableNotifications">Ativar Notificações:</label>
+                <input type="checkbox" id="enableNotifications" name="enableNotifications">
+
+                <label for="notificationInterval">Intervalo de Notificações:</label>
+                <select id="notificationInterval" name="notificationInterval">
+                    <option value="15">15 minutos</option>
+                    <option value="30">30 minutos</option>
+                    <option value="60">1 hora</option>
+                    <option value="120">2 horas</option>
+                </select>
+
+                <button type="submit">Salvar</button>
+            </form>
+        </section>
+    </div>
+
+</body>
+</html>

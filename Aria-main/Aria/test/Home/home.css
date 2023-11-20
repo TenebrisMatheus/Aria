@@ -1,0 +1,180 @@
+/* Navbar */
+.navbar {
+  background: linear-gradient(to bottom, red, black);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.navbar a {
+  color: white;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 10px 40px;
+}
+
+.profile-pic {
+  width: 50px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 5px;
+  margin-left: auto;
+  background-size: cover;
+  cursor: pointer;
+  position: relative;
+}
+
+.profile-pic::before {
+  content: '';
+  position: absolute;
+  top: 2px; /* Ajuste a posição para alinhar a sombra */
+  bottom: 1px;
+  left: 1px;
+  right: 1px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 5px rgba(227, 244, 247, 0.918); /* Adiciona uma sombra esmaecida */
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Adiciona transições suaves */
+}
+
+.profile-pic:hover::before {
+  opacity: 1;
+  transform: scale(1.1); /* Aumenta ligeiramente o tamanho da sombra ao passar o mouse */
+}
+
+
+.logoPrincipal{
+  width: 60px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 60px;
+  margin-left: 25px;
+
+}
+
+.logo {
+  /* Adicione estilos para a logo se necessário */
+  margin-left: 0px;
+  max-width: 120px; /* Ajuste a largura máxima conforme necessário */
+}
+
+
+
+
+/* File List */
+#fileList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.file-container {
+  margin: 10px;
+  text-align: center;
+  flex: 1 1 calc(33.33% - 20px);
+  max-width: calc(33.33% - 20px);
+}
+
+.file-container img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.file-container a {
+  display: block;
+  padding: 10px;
+  background-color: blueviolet;
+  text-decoration: none;
+  color: #333;
+  border-radius: 4px;
+}
+
+.file-container a:hover {
+  background-color: #ddd;
+}
+
+.file-image {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+/* Menu Dropdown */
+.menu-dropdown {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.menu-dropdown a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin: 5px 0;
+}
+
+.menu-dropdown.show-menu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.menu-icon {
+  cursor: pointer;
+  order: 100;
+}
+
+/* Body */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, black, red);
+  background-attachment: fixed;
+}
+
+/* Heading */
+h1 {
+  text-align: center;
+  margin-top: 100px;
+  font-size: 36px;
+}
+#videoContainer {
+  max-width: 200px; /* Defina a largura máxima desejada */
+}
+.file-video {
+  width: 50%; /* O vídeo ocupará 100% da largura do contêiner */
+  height: auto; /* A altura será ajustada automaticamente para manter a proporção original */
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  width: 200px;
+  height: 300px;
+  text-align: center;
+  cursor: pointer;
+}
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.card-content {
+  margin-top: 10px;
+}

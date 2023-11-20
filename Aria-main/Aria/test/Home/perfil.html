@@ -1,0 +1,56 @@
+<!-- perfil.html -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-xr72NS62QvhrlJy+6tK5qPffA3ABQb8CUeQiiwlF0y0/0bB3AtPLO3Eh1KFpTH7Jv3bPBCmg0lMvU7kZlNecIQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/perfil.css">
+    <title>Perfil</title>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-header">
+            <h1>Dados do Perfil do Usuário</h1>
+        </div>
+
+        <div id="userProfile">
+            <div class="profile-container">
+                <img id="userPhoto" src="" alt="Foto do usuário">
+                <button id="editPhotoButton" class="btn btn-info"><i class="fas fa-pencil-alt"></i></button>
+            </div>
+            <h2 id="userName">Nome do Usuário</h2>
+            <input type="file" id="photoInput" accept="image/*" style="display: none;">
+            <a href="perfil-edit.html" class="btn btn-primary">Editar Perfil</a>
+            <button id="backToHomeButton" class="btn btn-primary"><i class="fas fa-home"></i> Voltar para a Home</button>
+        </div>
+        
+        <button id="signOutButton" class="btn btn-danger">Sair da Conta</button>
+
+        <div id="profileCard">
+            <div id="profileCardHeader">
+                <h3>Informações do Perfil</h3>
+            </div>
+            <div id="profileCardContent">
+                <p><strong>Nome de Usuário:</strong> <span id="profileCardUserName"></span></p>
+                <p><strong>Portfólio:</strong> <span id="profileCardPortfolio"></span></p>
+                <p><strong>Locais de Trabalho:</strong> <span id="profileCardWorkplaces"></span></p>
+                <p><strong>Link Social:</strong> <span id="profileCardSocialLink"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/1b55c86046.js" crossorigin="anonymous"></script>
+    <script src="js/perfil.js"></script>
+    <script src="../Cadastro/config.js"></script>
+</body>
+</html>

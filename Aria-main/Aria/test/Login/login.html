@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="logo-and-form logo-glitch">
+        <img src="../IMG/Logo.png" alt="Aria" class="logo pulse-animation">
+    </div>
+    <form class="form-container" onsubmit="return validateForm()" class="col-md-6"><br>
+        <h2 class="text-center">Entre</h2><br>
+
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="inemail" placeholder="Digite seu email">
+            <label for="inemail">Email:</label>
+        </div>
+        <div class="form-floating mb-3 password-toggle-container">
+            <input type="password" class="form-control" id="insenha" placeholder="Senha">
+            <label for="insenha">Senha: </label>
+            <span class="password-toggle-icon" onclick="togglePasswordVisibility('insenha')">
+                <i class="bi bi-eye-slash"></i>
+            </span>
+        </div>
+        <div class="d-flex justify-content-end align-items-center">
+            <a class="link-offset-2 link-underline link-underline-opacity-0" href="../Login/esqueceusenha.html">Esqueceu sua senha?</a>
+        </div>
+               
+        <div class="d-flex align-items-center">
+            <p class="mb-0 me-2">Não possui uma conta?</p>
+            <a class="link-offset-2 link-underline link-underline-opacity-0" href="../Cadastro/cadastro.html">Cadastrar</a>
+        </div>
+        <div class="divider">
+            <hr>
+            <span class="divider-label">Ou</span>
+            <hr>
+        </div>
+        <div class="container mt-3">
+            <a href="#" class="google-btn" id="google-login">
+                <img src="../IMG/google.png" alt="Google Icon" class="btn-icon">
+                <span class="btn-text">Entrar com Google</span>
+            </a>
+        </div>
+        
+        <div class="container mt-3">
+            <a href="#" class="github-btn" id="git-login">
+                <img src="../IMG/github.png" alt="Github Icon" class="btn-icon">
+                <span class="btn-text">Entrar com GitHub</span>
+            </a>
+        </div><br>
+         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+         <button type="button" id="btnentrar" class="btn btn-outline-danger">Login</button>
+         </div>
+    </form>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@github/auth@5.0.7/dist/auth.esm.mjs"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="login.js"></script>
+    <script src="../Cadastro/config.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>

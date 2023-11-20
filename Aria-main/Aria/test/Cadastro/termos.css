@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, black,red );
+    
+}
+@media (min-width: 768px) {
+    form {
+        width: 45%;
+        height: 640px;
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        
+    }
+    .logo-and-name {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 20px;
+    }
+}
+
+/* Estilo personalizado para o formulário na versão celular */
+@media (max-width: 767px) {
+    form {
+        width: 80%;
+        text-align: center;
+        background-color: rgb(255, 255, 255);
+        border-radius: 2%;
+    }
+    .logo-and-name {
+        display: block;
+        margin-bottom: 20px;
+        
+    }
+    form{
+        padding: 20px;
+    }
+    a{
+        text-decoration: none;
+    }
+}

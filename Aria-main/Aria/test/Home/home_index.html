@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <title>Home</title> 
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase.js"></script>
+    <script src="../Cadastro/config.js"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+
+    <div class="navbar">
+        <img class="logoPrincipal" src="../IMG/logoPrincipal.png" alt="Sua Foto de Perfil">
+       
+    
+        <a href="home_index.html">Home</a>
+        <a href="musica_index.html">Música</a>
+        <a href="cinema_index.html">Cinema</a>
+        <a href="games_index.html">Games</a>
+        <div id="userPhoto" class="profile-pic" onclick="toggleMenu()">
+            <!-- A imagem do usuário será inserida aqui -->
+        </div>
+        <div id="menuContainer">
+            <div class="menu-dropdown" id="menuDropdown">
+                <a href="perfil.html">Perfil</a>
+                <a href="#">Conta</a>
+                <a href="config.html">Configurações</a>
+                <button id="Sair">Sair</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Teste de mídia -->
+    
+
+    <div id="dadosUser"></div>
+  
+    <h1>Enviar Arquivo</h1>
+
+    <form id="upload-form">
+        <label for="media">Escolha a Mídia:</label>
+        <input type="file" id="media" accept="image/*, audio/*, video/*" required>
+
+        <label for="category">Escolha a Categoria:</label>
+        <select id="category" required>
+            <option value="musica">Música</option>
+            <option value="games">Games</option>
+            <option value="cinema">Cinema</option>
+        </select>
+
+        <button type="submit">Enviar</button>
+    </form>
+    <div id="media-container">
+        <!-- O conteúdo de mídia será exibido aqui -->
+    </div>
+    <!-- Exemplo de adição de vários cards -->
+    <div id="cardContainer">
+        <!-- Os cards serão adicionados aqui dinamicamente -->
+    </div>
+
+    <div id="videoContainer">
+        <!-- Aqui os vídeos serão exibidos -->
+    </div>
+
+    <script>
+        // Função para exibir as imagens
+        function displayImages() {
+            var imageContainer = document.getElementById('cardContainer');
+
+            firebase.auth().onAuthStateChanged(user => {
+                if (user) {
+                    var filesRef = storage.ref('users/' + user.uid + '/files');
+                    filesRef.listAll().then(result => {
+                        result.items.forEach(item => {
+                            item.getDownloadURL().then(url => {
+                                item.getMetadata().then(metadata => {
+
+                                    let arquivoconfig = user.uid + ".txt"
+                                    if (metadata.name != arquivoconfig && metadata.contentType.startsWith('image')) {
+
+                                        var card = document.createElement('div');
+                                        card.classList.add('card');
+                                        card.onclick = function () {
+                                            window.location.href = 'produto.html';
+                                        };
+
+                                        var cardImage = document.createElement('img');
+                                        cardImage.src = url;
+                                        cardImage.alt = 'Imagem do produto';
+
+                                        var cardContent = document.createElement('div');
+                                        cardContent.classList.add('card-content');
+
+                                        cardContent.appendChild(cardImage);
+                                        card.appendChild(cardContent);
+
+                                        imageContainer.appendChild(card);
+                                    }
+                                });
+                            });
+                        });
+                    }).catch(error => {
+                        console.error('Erro ao recuperar imagens:', error);
+                    });
+                } else {
+                    console.error('Usuário não autenticado.');
+                }
+            });
+        }
+
+        // Chamar a função de exibição ao carregar a página
+        document.addEventListener('DOMContentLoaded', displayImages);
+    </script>
+
+</body>
+</html>
